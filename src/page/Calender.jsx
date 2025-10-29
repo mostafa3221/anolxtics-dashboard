@@ -6,8 +6,8 @@ import interactionPlugin from "@fullcalendar/interaction";
 import { formatDate } from '@fullcalendar/core'
 import './../style/Calender.css'
 
+export default function Calender() {
 
-const Calender = () => {
   const [weekendsVisible, setWeekendsVisible] = useState(true);
   const [currentEvents, setCurrentEvents] = useState(() => {
     const savedEvents = localStorage.getItem('calendarEvents');
@@ -165,4 +165,4 @@ function SidebarEvent({ event }) {
     </li>
   )
 }
-export default Calender;
+

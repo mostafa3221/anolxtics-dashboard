@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './index.css'
 import App from './App.jsx'
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 
 function Root() {
   const [mode, setMode] = useState('light');
@@ -22,9 +22,9 @@ function Root() {
 }
 
 createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
+  <HashRouter>
     <StrictMode>
       <Root />
     </StrictMode>
-  </BrowserRouter>
+  </HashRouter>
 )
