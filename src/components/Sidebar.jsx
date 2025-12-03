@@ -117,208 +117,216 @@ const Sidebar = ({ handleDrawerClose, open }) => {
   ];
 
   const navigate = useNavigate();
-  return (
-    
+  const drawerContent = (
     <>
-      <Drawer
-        variant={isMdUp ? "permanent" : "temporary"}
-        open={open}
-        onClose={!isMdUp ? handleDrawerClose : undefined}
-        ModalProps={{ keepMounted: true }}
-      >
-        <DrawerHeader>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
-          </IconButton>
-        </DrawerHeader>
-        <Avatar
-          sx={{ width: open? 100:40,
-             height: open? 100:40,
-              alignItems: "center", 
-              margin: "10px auto",
-                         transition: "all 0.3s ease-in-out",
- }}
+      <DrawerHeader>
+        <IconButton onClick={handleDrawerClose}>
+          {theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+        </IconButton>
+      </DrawerHeader>
+      <Avatar
+        sx={{
+          width: open ? 100 : 40,
+          height: open ? 100 : 40,
+          alignItems: "center",
+          margin: "10px auto",
+          transition: "all 0.3s ease-in-out",
+        }}
         alt="User Avatar"
-         src="https://tse3.mm.bing.net/th/id/OIP.4jMnIrMMsOP-zXwSBuRc6QHaF3?rs=1&pid=ImgDetMain&o=7&rm=3" />
-        <Typography
-          variant="h6"
-          align="center"
-          sx={{ alignItems: "center", marginBottom: 0, display: open ? 'block' : 'none' }}
-        >
-          John Doe
-        </Typography>
-        
-        <Typography
-          variant="h6"
-          align="center"
-          sx={{ marginBottom: 0, display: open ? 'block' : 'none',  color: (theme) => theme.palette.primary.main  }}
-        >
-          Adman
-        </Typography>
+        src="https://tse3.mm.bing.net/th/id/OIP.4jMnIrMMsOP-zXwSBuRc6QHaF3?rs=1&pid=ImgDetMain&o=7&rm=3"
+      />
+      <Typography
+        variant="h6"
+        align="center"
+        sx={{ alignItems: "center", marginBottom: 0, display: open ? "block" : "none" }}
+      >
+        John Doe
+      </Typography>
+
+      <Typography
+        variant="h6"
+        align="center"
+        sx={{
+          marginBottom: 0,
+          display: open ? "block" : "none",
+          color: (theme) => theme.palette.primary.main,
+        }}
+      >
+        Adman
+      </Typography>
+      <Divider />
+      <List>
+        {List1.map((item) => (
+          <ListItem key={item.name} disablePadding sx={{ display: "block" }}>
+            <ListItemButton
+              onClick={() => navigate(item.patch)}
+              sx={[
+                {
+                  minHeight: 48,
+                  px: 2.5,
+                },
+                open
+                  ? {
+                      justifyContent: "initial",
+                    }
+                  : {
+                      justifyContent: "center",
+                    },
+              ]}
+            >
+              <ListItemIcon
+                sx={[
+                  {
+                    minWidth: 0,
+                    justifyContent: "center",
+                  },
+                  open
+                    ? {
+                        mr: 3,
+                      }
+                    : {
+                        mr: "auto",
+                      },
+                ]}
+              >
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText
+                primary={item.name}
+                sx={[
+                  open
+                    ? {
+                        opacity: 1,
+                      }
+                    : {
+                        opacity: 0,
+                      },
+                ]}
+              />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <Divider />
+      <List>
+        {List2.map((item) => (
+          <ListItem key={item.name} disablePadding sx={{ display: "block" }}>
+            <ListItemButton
+              onClick={() => navigate(item.patch)}
+              sx={[
+                {
+                  minHeight: 48,
+                  px: 2.5,
+                },
+                open
+                  ? {
+                      justifyContent: "initial",
+                    }
+                  : {
+                      justifyContent: "center",
+                    },
+              ]}
+            >
+              <ListItemIcon
+                sx={[
+                  {
+                    minWidth: 0,
+                    justifyContent: "center",
+                  },
+                  open
+                    ? {
+                        mr: 3,
+                      }
+                    : {
+                        mr: "auto",
+                      },
+                ]}
+              >
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText
+                primary={item.name}
+                sx={[
+                  open
+                    ? {
+                        opacity: 1,
+                      }
+                    : {
+                        opacity: 0,
+                      },
+                ]}
+              />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+      <List>
         <Divider />
-        <List>
-          {List1.map((item) => (
-            <ListItem key={item.name} disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                onClick={() => navigate(item.patch)}
+        {List3.map((item) => (
+          <ListItem key={item.name} disablePadding sx={{ display: "block" }}>
+            <ListItemButton
+              onClick={() => navigate(item.patch)}
+              sx={[
+                {
+                  minHeight: 48,
+                  px: 2.5,
+                },
+                open
+                  ? {
+                      justifyContent: "initial",
+                    }
+                  : {
+                      justifyContent: "center",
+                    },
+              ]}
+            >
+              <ListItemIcon
                 sx={[
                   {
-                    minHeight: 48,
-                    px: 2.5,
+                    minWidth: 0,
+                    justifyContent: "center",
                   },
                   open
                     ? {
-                        justifyContent: "initial",
+                        mr: 3,
                       }
                     : {
-                        justifyContent: "center",
+                        mr: "auto",
                       },
                 ]}
               >
-                <ListItemIcon
-                  sx={[
-                    {
-                      minWidth: 0,
-                      justifyContent: "center",
-                    },
-                    open
-                      ? {
-                          mr: 3,
-                        }
-                      : {
-                          mr: "auto",
-                        },
-                  ]}
-                >
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText
-                  primary={item.name}
-                  sx={[
-                    open
-                      ? {
-                          opacity: 1,
-                        }
-                      : {
-                          opacity: 0,
-                        },
-                  ]}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <Divider />
-        <List>
-          {List2.map((item) => (
-            <ListItem key={item.name} disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                onClick={() => navigate(item.patch)}
+                {item.icon}
+              </ListItemIcon>
+              <ListItemText
+                primary={item.name}
                 sx={[
-                  {
-                    minHeight: 48,
-                    px: 2.5,
-                  },
                   open
                     ? {
-                        justifyContent: "initial",
+                        opacity: 1,
                       }
                     : {
-                        justifyContent: "center",
+                        opacity: 0,
                       },
                 ]}
-              >
-                <ListItemIcon
-                  sx={[
-                    {
-                      minWidth: 0,
-                      justifyContent: "center",
-                    },
-                    open
-                      ? {
-                          mr: 3,
-                        }
-                      : {
-                          mr: "auto",
-                        },
-                  ]}
-                >
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText
-                  primary={item.name}
-                  sx={[
-                    open
-                      ? {
-                          opacity: 1,
-                        }
-                      : {
-                          opacity: 0,
-                        },
-                  ]}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-        <List>
-          <Divider />
-          {List3.map((item) => (
-            <ListItem key={item.name} disablePadding sx={{ display: "block" }}>
-              <ListItemButton
-                onClick={() => navigate(item.patch)}
-                sx={[
-                  {
-                    minHeight: 48,
-                    px: 2.5,
-                  },
-                  open
-                    ? {
-                        justifyContent: "initial",
-                      }
-                    : {
-                        justifyContent: "center",
-                      },
-                ]}
-              >
-                <ListItemIcon
-                  sx={[
-                    {
-                      minWidth: 0,
-                      justifyContent: "center",
-                    },
-                    open
-                      ? {
-                          mr: 3,
-                        }
-                      : {
-                          mr: "auto",
-                        },
-                  ]}
-                >
-                  {item.icon}
-                </ListItemIcon>
-                <ListItemText
-                  primary={item.name}
-                  sx={[
-                    open
-                      ? {
-                          opacity: 1,
-                        }
-                      : {
-                          opacity: 0,
-                        },
-                  ]}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
-      </Drawer>
+              />
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </>
+  );
+
+  return (
+    <>
+      {isMdUp ? (
+        <Drawer variant="permanent" open={open}>
+          {drawerContent}
+        </Drawer>
+      ) : (
+        <MuiDrawer variant="temporary" open={open} onClose={handleDrawerClose} ModalProps={{ keepMounted: true }}>
+          {drawerContent}
+        </MuiDrawer>
+      )}
     </>
   );
 };

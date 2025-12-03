@@ -35,7 +35,11 @@ const DrawerHeader = styled('div')(({ theme }) => ({
 
 
 export default function App({toggleColorMode }) {
-  const [open, setOpen] = React.useState(false);
+  const theme = useTheme();
+  const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+
+  const [open, setOpen] = React.useState(isMdUp);
 
   const handleDrawerOpen = () => {
         setOpen(true);
@@ -44,8 +48,10 @@ export default function App({toggleColorMode }) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
+  // keep `open` in sync when breakpoint crosses md
+  React.useEffect(() => {
+    setOpen(isMdUp);
+  }, [isMdUp]);
   const [lang, setLang] = React.useState('ar');
   const [allowMobileView, setAllowMobileView] = React.useState(false);
   const [showRotateHint, setShowRotateHint] = React.useState(false);
